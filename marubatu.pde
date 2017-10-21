@@ -12,7 +12,6 @@ int[][] table = new int[3][3];
 int x;
 int y;
 
-
 //勝敗
 int winner;
 
@@ -126,8 +125,10 @@ void mouseClicked() {
     if (a0 < 50 && table[0][0] == 0) {
       if (turn == true) {
         table[0][0] = 1;
+        turn =! turn; 
       } else {
         table[0][0] = 2;
+        turn =! turn; 
       }
     }
     
@@ -135,8 +136,10 @@ void mouseClicked() {
     if(a1 < 50){
       if (turn == true) {
         table[0][1] = 1;
+        turn =! turn; 
       } else {
         table[0][1] = 2;
+        turn =! turn; 
       }
     }
     
@@ -144,8 +147,10 @@ void mouseClicked() {
     if(a2 < 50){
       if (turn == true) {
         table[0][2] = 1;
+        turn =! turn; 
       } else {
         table[0][2] = 2;
+        turn =! turn; 
       }
     }
     
@@ -153,8 +158,10 @@ void mouseClicked() {
     if(b0 < 50){
       if (turn == true) {
         table[1][0] = 1;
+        turn =! turn; 
       } else {
         table[1][0] = 2;
+        turn =! turn; 
       }
     }
     
@@ -162,8 +169,10 @@ void mouseClicked() {
     if(b1 < 50){
       if (turn == true) {
         table[1][1] = 1;
+        turn =! turn; 
       } else {
         table[1][1] = 2;
+        turn =! turn; 
       }
     }
     
@@ -171,8 +180,10 @@ void mouseClicked() {
     if(b2 < 50){
       if (turn == true) {
         table[1][2] = 1;
+        turn =! turn; 
       } else {
         table[1][2] = 2;
+        turn =! turn; 
       }
     }
     
@@ -180,8 +191,10 @@ void mouseClicked() {
     if(c0 < 50){
       if (turn == true) {
         table[2][0] = 1;
+        turn =! turn; 
       } else {
         table[2][0] = 2;
+        turn =! turn; 
       }
     }
     
@@ -189,18 +202,21 @@ void mouseClicked() {
     if(c1 < 50){
       if (turn == true) {
         table[2][1] = 1;
+        turn =! turn; 
       } else {
         table[2][1] = 2;
+        turn =! turn; 
       }
     }
     float c2 = dist(300, 280, mouseX, mouseY);//[2][2]
     if(c2 < 50){
       if (turn == true) {
         table[2][2] = 1;
+        turn =! turn; 
       } else {
         table[2][2] = 2;
+        turn =! turn; 
       }
-    }
-    turn =! turn;
+    }   
   }
 }
