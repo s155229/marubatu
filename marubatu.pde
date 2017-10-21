@@ -133,7 +133,7 @@ void mouseClicked() {
     }
     
     float a1 = dist(200, 80, mouseX, mouseY);//[0][1]
-    if(a1 < 50){
+    if(a1 < 50 && table[0][1] == 0){
       if (turn == true) {
         table[0][1] = 1;
         turn =! turn; 
@@ -144,7 +144,7 @@ void mouseClicked() {
     }
     
     float a2 = dist(300, 80, mouseX, mouseY);//[0][2]
-    if(a2 < 50){
+    if(a2 < 50 && table[0][2] == 0){
       if (turn == true) {
         table[0][2] = 1;
         turn =! turn; 
@@ -155,7 +155,7 @@ void mouseClicked() {
     }
     
     float b0 = dist(100, 180, mouseX, mouseY);//[1][0]
-    if(b0 < 50){
+    if(b0 < 50 && table[1][0] == 0){
       if (turn == true) {
         table[1][0] = 1;
         turn =! turn; 
@@ -166,7 +166,7 @@ void mouseClicked() {
     }
     
     float b1 = dist(200, 180, mouseX, mouseY);//[1][1]
-    if(b1 < 50){
+    if(b1 < 50 && table[1][1] == 0){
       if (turn == true) {
         table[1][1] = 1;
         turn =! turn; 
@@ -177,7 +177,7 @@ void mouseClicked() {
     }
     
     float b2 = dist(300, 180, mouseX, mouseY);//[1][2]
-    if(b2 < 50){
+    if(b2 < 50 && table[1][2] == 0){
       if (turn == true) {
         table[1][2] = 1;
         turn =! turn; 
@@ -188,7 +188,7 @@ void mouseClicked() {
     }
     
     float c0 = dist(100,280, mouseX, mouseY);//[2][0]
-    if(c0 < 50){
+    if(c0 < 50 && table[2][0] == 0){
       if (turn == true) {
         table[2][0] = 1;
         turn =! turn; 
@@ -199,7 +199,7 @@ void mouseClicked() {
     }
     
     float c1 = dist(200, 280, mouseX, mouseY);//[2][1]
-    if(c1 < 50){
+    if(c1 < 50 && table[2][1] == 0){
       if (turn == true) {
         table[2][1] = 1;
         turn =! turn; 
@@ -209,7 +209,7 @@ void mouseClicked() {
       }
     }
     float c2 = dist(300, 280, mouseX, mouseY);//[2][2]
-    if(c2 < 50){
+    if(c2 < 50 && table[2][2] == 0){
       if (turn == true) {
         table[2][2] = 1;
         turn =! turn; 
