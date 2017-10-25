@@ -18,7 +18,7 @@ int y;
 int winner;
 
 //画像
-PImage titleImg;//タイトル
+PImage titleImg;//タイトル画像
 
 void setup() {
   size(640, 360);
@@ -32,7 +32,8 @@ void setup() {
 }
 
 void draw() {
-  if (state == 0) {//タイトル画面
+  //タイトル画面
+  if (state == 0) {
     background(127, 175, 255);
     image(titleImg, 0, 0);
 
@@ -44,7 +45,8 @@ void draw() {
       state = 1;
     }
   }
-  if (state == 1) {//ゲーム画面
+  //ゲーム画面
+  if (state == 1) {
     background(255);
 
     line(50, 130, 350, 130);
@@ -126,7 +128,7 @@ void draw() {
     //勝敗判定
     x = 0;
     y = 0;
-    for (; x < table.length; x++) {
+    for (; x < table.length; x++) {//行
       if (table[x][y] + table[x][y + 1] + table[x][y + 2] == 3) {
         winner = 1;
         state = 2;
@@ -139,7 +141,7 @@ void draw() {
 
     x = 0;
     y = 0;
-    for (; y < table.length; y++) {
+    for (; y < table.length; y++) {//列
       if (table[x][y] + table[x + 1][y] + table[x + 2][y] == 3) {
         winner = 1;
         state = 2;
@@ -149,10 +151,17 @@ void draw() {
         state = 2;
       }
     }
-    if (table[0][0] + table[1][1] + table[2][2] == 3) {
+    if (table[0][0] + table[1][1] + table[2][2] == 3) {//斜
       winner = 1;
       state = 2;
     } else if (table[0][0] + table[1][1] + table[2][2] == -3) {
+      winner = 2;
+      state = 2;
+    }
+    if (table[0][2] + table[1][1] + table[2][0] == 3) {//斜
+      winner = 1;
+      state = 2;
+    } else if (table[0][2] + table[1][1] + table[2][0] == -3) {
       winner = 2;
       state = 2;
     }
@@ -162,7 +171,8 @@ void draw() {
       state = 2;
     }
   }
-  if (state == 2) {//リザルト画面
+  //リザルト画面
+  if (state == 2) {
     background(255);
     fill(255, 0, 0);
     if (winner == 1) {
@@ -176,11 +186,16 @@ void draw() {
     } else if (winner == 0) {
       text("Draw!", 250, 180);
     }
+
+    if (keyPressed) {
+      exit();
+    }
   }
 }
 
 void mouseClicked() {
-  if (state == 1) {//ゲーム画面
+  //ゲーム画面
+  if (state == 1) {
 
     float a0 = dist(100, 80, mouseX, mouseY);//[0][0]
     if (a0 < 50 && table[0][0] == 0) {
