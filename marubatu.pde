@@ -1,8 +1,8 @@
-//画面の状態(0:タイトル画面, 1:ゲーム画面, 2:リザルト画面) //<>// //<>//
-int state = 0;
+import processing.sound.*; //<>//
+SoundFile put;
 
-//コンピュータとの対戦か否か(true or false)
-boolean cpu = false;
+//画面の状態(0:タイトル画面, 1:ゲーム画面, 2:リザルト画面) //<>//
+int state = 0;
 
 //先攻後攻の判定
 boolean turn = true;
@@ -29,6 +29,7 @@ void setup() {
   }
 
   titleImg = loadImage("titleImg.png");
+  put = new SoundFile(this,"striking_a_small_stone.mp3");
 }
 
 void draw() {
@@ -54,7 +55,7 @@ void draw() {
     line(150, 30, 150, 330);
     line(250, 30, 250, 330);
 
-    if (cpu == false) {
+    
       if (turn == true) {//先攻
         fill(0);
         text("Player1", 500, 330);
@@ -62,9 +63,6 @@ void draw() {
         fill(0);
         text("Player2", 500, 330);
       }
-    } else {
-      //CPU対戦のときの処理
-    }
 
 
     if (table[0][0] == 1) {
@@ -170,6 +168,8 @@ void draw() {
       winner = 0;
       state = 2;
     }
+    
+    
   }
   //リザルト画面
   if (state == 2) {
@@ -178,15 +178,10 @@ void draw() {
     if (winner == 1) {
       text("Player1 Win!", 230, 180);
     } else if (winner == 2) {
-      if (cpu == false) {
         text("Player2 Win!", 230, 180);
-      } else {
-        text("CPU Win!", 230, 180);
-      }
     } else if (winner == 0) {
       text("Draw!", 250, 180);
     }
-
     if (keyPressed) {
       exit();
     }
@@ -312,5 +307,7 @@ void mouseClicked() {
         turnCnt++;
       }
     }
+    put.amp(0.5);
+    put.play();
   }
 }
